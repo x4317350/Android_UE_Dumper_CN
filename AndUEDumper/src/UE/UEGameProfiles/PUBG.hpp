@@ -53,7 +53,7 @@ public:
         auto base = GetUEVars()->GetBaseAddress();
         //printf("0x%lx\n", base);
         std::string CalShootTargetLocationBP = "60 1C A3 4E 81 1C A4 4E A2 1C A5 4E C0 03 5F D6 ? ? ? F9";
-        std::string DecArray = "? ? ? A9 ? ? ? A9 ? ? ? A9 ? ? ? A9 ? ? ? A9 ? ? ? A9 ? ? ? 91 ? ? ? D1 ? ? ? B0 ? ? ? F9 F3 03 01 2A F4 03 00 AA ? ? ? B9";
+        std::string DecArray = "0F 11 00 B9 1B 21 00 B9 0E 31 00 B9 0F 41 00 B9 1B 51 00 B9 18 61 00 B9 19 71 00 B9 1A 81 00 B9 17 91 00 B9 0B A1 00 B9 1F B1 00 B9 1F C1 00 B9 0D D1 00 B9 0A E1 00 B9 08 C1 03 91";
         std::string GetAccessoriesDeviationFactor = "? ? ? BD 81 09 21 1E 00 28 21 1E 40 09 20 1E";
         std::string GetAccessoriesAllRecoilFactorModifier = "40 08 20 1E ? ? ? 71";
         std::string AnimationKick = "0B 08 2B 1E 00 01 3F D6";
@@ -67,7 +67,9 @@ public:
     uintptr_t GetNamesPtr() const override
     {
         print_func();
-        std::string ida_pattern = "? ? ? B0 ? ? ? D0 ? ? ? F9 ? ? ? 91 ? ? ? 91 ? ? ? 94";
+        // auto base = GetUEVars()->GetBaseAddress();
+        // return base + 0x14e33c18;
+        std::string ida_pattern = "? ? ? ? ? ? ? D0 ? ? ? F9 ? ? ? 91 ? ? ? 91 ? ? ? 94";
         const int step = 0x0;
 
         PATTERN_MAP_TYPE map_type = isEmulator() ? PATTERN_MAP_TYPE::ANY_R : PATTERN_MAP_TYPE::ANY_X;
